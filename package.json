@@ -1,6 +1,6 @@
 {
   "name": "@saladswap/saladswap-peripheral",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "🎚 Peripheral smart contracts for interacting with salad",
   "engines": {
     "node": ">=10"

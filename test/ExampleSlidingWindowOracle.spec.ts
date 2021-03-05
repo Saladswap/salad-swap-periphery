@@ -139,10 +139,17 @@ describe('ExampleSlidingWindowOracle', () => {
       const blockTimestamp = (await pair.getReserves())[2]
       // expect(blockTimestamp).to.eq(startTime+2)
       await slidingWindowOracle.update(token0.address, token1.address, overrides)
-      expect(await slidingWindowOracle.pairObservations(pair.address, observationIndexOf(blockTimestamp))).to.deep.eq([
+      const observation = await slidingWindowOracle.pairObservations(pair.address, observationIndexOf(blockTimestamp));
+      const price0 = await pair.price0CumulativeLast()
+      const price1 = await pair.price1CumulativeLast()
+      console.log('-- observation : ', observation)
+      console.log('-- blockTimestamp : ', bigNumberify(blockTimestamp))
+      console.log('-- price0 : ', price0)
+      console.log('-- price1 : ', observation)
+      expect(observation).to.deep.eq([
         bigNumberify(blockTimestamp),
-        await pair.price0CumulativeLast(),
-        await pair.price1CumulativeLast()
+        price0,
+        price1
       ])
     }).retries(2) // we may have slight differences between pair blockTimestamp and the expected timestamp
     // because the previous block timestamp may differ from the current block timestamp by 1 second
