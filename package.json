@@ -1,6 +1,6 @@
 {
   "name": "@saladswap/saladswap-peripheral",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "🎚 Peripheral smart contracts for interacting with salad",
   "engines": {
     "node": ">=10"
@@ -17,8 +17,9 @@
   "dependencies": {
     "@saladswap/salad-swap-core": "^0.1.1",
     "@uniswap/lib": "1.1.1",
-    "truffle-hdwallet-provider": "^1.0.17",
-    "truffle-plugin-verify": "^0.4.0"
+    "truffle": "^5.1.41",
+    "truffle-flattener": "^1.4.4",
+    "truffle-hdwallet-provider": "^1.0.17"
   },
   "devDependencies": {
     "@types/chai": "^4.2.6",
@@ -31,6 +32,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "solc": "0.6.6",
+    "truffle-plugin-verify": "^0.4.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
